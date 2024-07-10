@@ -1,32 +1,28 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.container-fluid {
+  height: 100%;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: center;
+}
 
+#domain {
+  font-size: 50px;
+}
 
-/* html {
-    height: 100%;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-  .container-fluid {
-    height: 100%;
-    overflow: auto;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  #excuse {
-    font-size: 50px;
-  }
-  
-  .btn-warning:hover {
-    background-color: #fedb73;
-    color: #3f454a;
-  }
-  
-  .btn-warning:active {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  }
-   */
+.btn-success:hover {
+  background-color: #fedb73;
+  color: #3f454a;
+}
+
+.btn-success:active {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}

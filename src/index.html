@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Davinia pd" />
-    <title>Randoms grumpies domains</title>
+    <title>Random grumpy domain</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -19,13 +19,22 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
-  <body>
+  <body class="bg-secondary">
     <div class="container-fluid d-flex align-items-center text-center">
       <h1 class="fs-3 mt-5">Choose your favourite grumpy domain</h1>
-      <div
-        class="container border border-warning border-5 p-3"
-        id="domain"
-      ></div>
+      <div class="container bg-primary p-3" id="domain"></div>
+
+      <div id="boton">
+        <button
+          type="button"
+          class="btn btn-success btn-lg m-5"
+          data-ajax="true"
+          id="reload"
+        >
+          Refresh your domain
+        </button>
+      </div>
+
       <div class="fixed-bottom p-4">
         Made with ❤️ by
         <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
