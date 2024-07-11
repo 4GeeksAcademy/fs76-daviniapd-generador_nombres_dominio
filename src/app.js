@@ -33,7 +33,7 @@ function generateDomain() {
 
 // ! final funcion generateDomain
 
-// window.onload = generateDomain;
+window.onload = generateDomain;
 
 // ! click en boton y que habra la funcion
 
