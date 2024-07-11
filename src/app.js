@@ -6,9 +6,9 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 function generateDomain() {
-  let pronoun = ["the", "our", "your", "their", "my", "her", "his"];
-  let adj = ["awful", "bored", "old", "bad", "poor", "filthy", "slow"];
-  let noun = ["skunk", "troll", "cheater", "snail", "elbow", "ruin", "banger"];
+  let pronoun = ["the", "our", "your", "their", "my"];
+  let adj = ["awful", "bored", "old", "bad", "filthy"];
+  let noun = ["skunk", "troll", "cheater", "snail", "elbow"];
 
   let domain = [];
 
@@ -20,10 +20,12 @@ function generateDomain() {
       }
     }
   }
+
   let domainList = "";
   for (let i = 0; i < domain.length; i++) {
     domainList += "<p>" + domain[i] + "</p>";
   }
+
   document.getElementById("domain").innerHTML = domainList;
 }
 
