@@ -1,23 +1,57 @@
 html {
   height: 100%;
 }
+
 body {
-  margin: 0% 5%;
   padding: 0;
   height: 100%;
-  background-color: rgb(254, 242, 227);
-  /* background-image: url("/src/assets/img/grumpy.png");
-  background-position: right;
-  background-size: auto 100vh;
+  background-image: url("/src/assets/img/fondo_domain.png");
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; */
+  background-attachment: fixed;
 }
-/* .container-fluid {
-  height: 100%;
-  overflow: auto;
-  flex-direction: column;
-  justify-content: center;
-} */
+
+h1 {
+  font-size: 70px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#domain {
+  font-size: 30px;
+}
+
+hr {
+  color: rgb(176 25 122) !important;
+}
+
+#reload {
+  padding: 10px;
+  font-size: 20px;
+  background-color: #aa1c78;
+  color: #ffffff;
+  border-color: #aa1c78;
+}
+
+#reload:hover {
+  background-color: #b6699b;
+  color: #ffffff;
+  border-color: #b6699b;
+}
+
+#reload:active:hover {
+  background-color: #b6699b;
+  color: #ffffff;
+  border-color: #b6699b;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  color: #aa1c78;
+  font-size: 30px;
+}
 
 .columns {
   column-count: 1;
@@ -25,38 +59,4 @@ body {
   display: inline-flex;
   overflow-y: auto;
   max-height: 40em;
-}
-
-h1 {
-  font-size: 70px;
-  color: #e6820f;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-#domain {
-  font-size: 30px;
-}
-
-.btn {
-  padding: 10px;
-  font-size: 20px;
-  background-color: #383f71;
-  color: #f6a850;
-}
-
-.btn:hover {
-  background-color: #c0c7ff;
-  color: #e6820f;
-}
-
-.btn:active:hover {
-  background-color: #c0c7ff;
-  color: #e6820f;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.img-fluid {
-  width: 100%;
-  flex-grow: 1;
 }

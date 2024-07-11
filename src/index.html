@@ -19,44 +19,91 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
+
+  <!-- inicio body -->
+   
   <body>
-    <div class="container-fluid d-inline-block w-100">
-      <h1 class="mx-5 mt-5 mb-2 font-weight-bold">Choose your favourite grumpy domain</h1>
-      <hr class="hr border-warning border-5 opacity-25">
+
+    <!-- inicio título y línea separadora -->
+
+    <div class="container-fluid d-inline-block text-center w-100 my-5">
+      <h1 class="mt-5 mb-2 font-weight-bold">
+        Choose your favourite grumpy domain
+      </h1>
+      <hr class="hr border-5 opacity-75 mx-5" />
     </div>
-    <div class="row justify-content-between align-items-center text-center">
-      <div class="col-4">
-        <div class="container-fluid" id="boton">
-          <button
-            type="button"
-            class="btn"
-            data-ajax="true"
-            id="reload"
-          >
-            Click here for domains grumpy options
-          </button>
-        </div>
-      </div>
-      <div class="col-4">
-          <div class="columns">
-            <div class="container-fluid text-center" id="domain"></div>
+
+    <!-- final título y línea separadora -->
+    <!-- inicio boton abre modal -->
+
+    <div
+      class="container-fluid d-flex justify-content-center align-items-center h-50 my-5"
+    >
+      <button
+        type="button"
+        class="btn btn-lg"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        id="reload"
+      >
+        Click & Domain
+      </button>
+    </div>
+
+    <!-- final boton abre modal -->
+    <!-- inicio modal -->
+     
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title ps-3 fw-bold" id="staticBackdropLabel">
+              List of domain names
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="columns">
+              <div class="container-fluid text-center" id="domain"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
-        <div class="col-4">
-          <img
-            src="/src/assets/img/grumpy.png"
-            class="img-fluid"
-            alt="grumpy"
-          />
-        </div>
       </div>
     </div>
+
+    <!-- final modal -->
+    <!-- inicio footer 4geeks -->
+
     <div class="row">
-    <div class="fixed-bottom text-center p-4">
-      Made with ❤️ by
-      <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+      <div class="fixed-bottom text-white text-center p-4">
+        Made with ❤️ by
+        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+      </div>
     </div>
-  </div>
+
+    <!-- final footer 4geeks -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -65,4 +112,7 @@
     ></script>
     <script src="src/app.js"></script>
   </body>
+
+  <!-- final body -->
+
 </html>
