@@ -35,64 +35,86 @@ function generateDomain() {
 
 window.onload = generateDomain;
 
+// ! alertas
+
+function showAlert(message, type) {
+  const alertContainer = document.getElementById("alertContainer");
+  const alertDiv = document.createElement("div");
+  alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+  alertDiv.role = "alert";
+  alertDiv.innerHTML = `
+    ${message}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  `;
+  alertContainer.appendChild(alertDiv);
+
+  // Eliminar la alerta después de 3 segundos
+  setTimeout(() => {
+    alertDiv.classList.remove("show");
+    alertDiv.classList.add("hide");
+    setTimeout(() => alertDiv.remove(), 500);
+  }, 3000);
+}
+
 // ! click en los botones para que: muestren resultado, añadan o eliminen
 
 function handleInput(action) {
-  const pronounInput = document.getElementById("pronounInput").value;
-  const adjInput = document.getElementById("adjInput").value;
-  const nounInput = document.getElementById("nounInput").value;
+  const pronounInput = document
+    .getElementById("pronounInput")
+    .value.replace(/\ /g, "");
+  const adjInput = document.getElementById("adjInput").value.replace(/\ /g, "");
+  const nounInput = document
+    .getElementById("nounInput")
+    .value.replace(/\ /g, "");
 
   if (action === "add") {
     if (!pronounInput && !adjInput && !nounInput) {
-      alert("Please enter a value in at least one field.");
+      showAlert("Please enter a value in at least one field.", "warning");
       return;
     }
   }
 
   if (pronounInput) {
     if (action === "add") {
-      alert(`Pronoun added: ${pronounInput}`);
+      showAlert(`Pronoun added: ${pronounInput}`, "success");
       pronoun.push(pronounInput);
     } else if (action === "delete") {
       const index = pronoun.indexOf(pronounInput);
       if (index > -1) {
         pronoun.splice(index, 1);
-        alert(`Pronoun deleted: ${pronounInput}`);
+        showAlert(`Pronoun deleted: ${pronounInput}`, "danger");
       } else {
-        alert(`Pronoun not found: ${pronounInput}`);
-        return;
+        showAlert(`Pronoun not found: ${pronounInput}`, "warning");
       }
     }
   }
 
   if (adjInput) {
     if (action === "add") {
-      alert(`Adjective added: ${adjInput}`);
+      showAlert(`Adjective added: ${adjInput}`, "success");
       adj.push(adjInput);
     } else if (action === "delete") {
       const index = adj.indexOf(adjInput);
       if (index > -1) {
         adj.splice(index, 1);
-        alert(`Adjective deleted: ${adjInput}`);
+        showAlert(`Adjective deleted: ${adjInput}`, "danger");
       } else {
-        alert(`Adjective not found: ${adjInput}`);
-        return;
+        showAlert(`Adjective not found: ${adjInput}`, "warning");
       }
     }
   }
 
   if (nounInput) {
     if (action === "add") {
-      alert(`Noun added: ${nounInput}`);
+      showAlert(`Noun added: ${nounInput}`, "success");
       noun.push(nounInput);
     } else if (action === "delete") {
       const index = noun.indexOf(nounInput);
       if (index > -1) {
         noun.splice(index, 1);
-        alert(`Noun deleted: ${nounInput}`);
+        showAlert(`Noun deleted: ${nounInput}`, "danger");
       } else {
-        alert(`Noun not found: ${nounInput}`);
-        return;
+        showAlert(`Noun not found: ${nounInput}`, "warning");
       }
     }
   }
