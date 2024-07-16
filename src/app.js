@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 // ! imprimir la frase del titulo
 
-console.log("Choose your favourite grumpy domain");
+console.log("Create and choose your favourite domain");
 
 // ! nombramos variables
 
@@ -21,7 +21,7 @@ let domain = [];
 
 function generateDomain() {
   const domainContainer = document.getElementById("domain");
-  domainContainer.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevos dominios
+  domainContainer.innerHTML = ""; // limpiar el contenedor antes de agregar nuevos dominios
 
   for (let p = 0; p < pronoun.length; p++) {
     for (let a = 0; a < adj.length; a++) {
@@ -33,7 +33,7 @@ function generateDomain() {
         domain.push(domainName);
         console.log(domainName);
 
-        // Crear un nuevo elemento para cada dominio y agregarlo al contenedor
+        // crear un nuevo elemento para cada dominio y agregarlo al contenedor
         const domainElement = document.createElement("div");
         domainElement.textContent = domainName;
         domainContainer.appendChild(domainElement);
@@ -60,7 +60,7 @@ function showAlert(message, type) {
   `;
   alertContainer.appendChild(alertDiv);
 
-  // Eliminar la alerta después de 3 segundos
+  // eliminar la alerta después de 3 segundos
   setTimeout(() => {
     alertDiv.classList.remove("show");
     alertDiv.classList.add("hide");
@@ -131,7 +131,7 @@ function handleInput(action) {
     }
   }
 
-  // Vaciar las casillas
+  // vaciar las casillas
   document.getElementById("pronounInput").value = "";
   document.getElementById("adjInput").value = "";
   document.getElementById("nounInput").value = "";
@@ -148,13 +148,13 @@ document.getElementById("result").addEventListener("click", generateDomain);
 
 document.getElementById("resetButton").addEventListener("click", function() {
   document.getElementById("domain").innerHTML = "";
-  domain = []; // Vaciar la variable de dominios
+  domain = []; // vaciar la variable de dominios
   pronoun = [];
   adj = [];
   noun = [];
-  console.clear(); // Limpiar la consola
-  document.getElementById("domainForm").reset(); // Resetear el formulario
+  console.clear(); // limpiar la consola
+  document.getElementById("domainForm").reset(); // resetear el formulario
 
-  // Mostrar alerta de reseteo
+  // mostrar alerta de reseteo
   showAlert("Form reset successfully.", "info");
 });
