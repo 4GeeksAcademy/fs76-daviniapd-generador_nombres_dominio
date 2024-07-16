@@ -18,10 +18,6 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-#domain {
-  font-size: 30px;
-}
-
 hr {
   color: rgb(176 25 122) !important;
 }
@@ -53,10 +49,14 @@ h2 {
   font-size: 30px;
 }
 
-.columns {
-  column-count: 1;
+#domain {
   column-gap: 0px;
-  display: inline-flex;
   overflow-y: auto;
-  max-height: 40em;
+  font-size: 18px;
+  font-weight: bold;
+  max-height: 400px; /* Ajusta según sea necesario */
+}
+
+.modal-footer {
+  width: 100%;
 }
