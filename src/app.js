@@ -37,46 +37,107 @@ window.onload = generateDomain;
 
 // ! click en los botones para que: muestren resultado, añadan o eliminen
 
+function handleInput(action) {
+  const pronounInput = document.getElementById("pronounInput").value;
+  const adjInput = document.getElementById("adjInput").value;
+  const nounInput = document.getElementById("nounInput").value;
+
+  if (action === "add") {
+    if (!pronounInput && !adjInput && !nounInput) {
+      alert("Please enter a value in at least one field.");
+      return;
+    }
+  }
+
+  if (pronounInput) {
+    if (action === "add") {
+      alert(`Pronoun added: ${pronounInput}`);
+      pronoun.push(pronounInput);
+    } else if (action === "delete") {
+      const index = pronoun.indexOf(pronounInput);
+      if (index > -1) {
+        pronoun.splice(index, 1);
+        alert(`Pronoun deleted: ${pronounInput}`);
+      } else {
+        alert(`Pronoun not found: ${pronounInput}`);
+        return;
+      }
+    }
+  }
+
+  if (adjInput) {
+    if (action === "add") {
+      alert(`Adjective added: ${adjInput}`);
+      adj.push(adjInput);
+    } else if (action === "delete") {
+      const index = adj.indexOf(adjInput);
+      if (index > -1) {
+        adj.splice(index, 1);
+        alert(`Adjective deleted: ${adjInput}`);
+      } else {
+        alert(`Adjective not found: ${adjInput}`);
+        return;
+      }
+    }
+  }
+
+  if (nounInput) {
+    if (action === "add") {
+      alert(`Noun added: ${nounInput}`);
+      noun.push(nounInput);
+    } else if (action === "delete") {
+      const index = noun.indexOf(nounInput);
+      if (index > -1) {
+        noun.splice(index, 1);
+        alert(`Noun deleted: ${nounInput}`);
+      } else {
+        alert(`Noun not found: ${nounInput}`);
+        return;
+      }
+    }
+  }
+
+  // Vaciar las casillas
+  document.getElementById("pronounInput").value = "";
+  document.getElementById("adjInput").value = "";
+  document.getElementById("nounInput").value = "";
+}
+
+document
+  .getElementById("addValue")
+  .addEventListener("click", () => handleInput("add"));
+document
+  .getElementById("deleteValue")
+  .addEventListener("click", () => handleInput("delete"));
+
 document.getElementById("result").addEventListener("click", generateDomain);
-
-document.getElementById("addValue").addEventListener("click", () => {
-  pronoun.push(document.getElementById("pronounInput").value);
-  adj.push(document.getElementById("adjInput").value);
-  noun.push(document.getElementById("nounInput").value);
-});
-
-document.getElementById("deleteValue").addEventListener("click", () => {
-  pronoun.pop();
-  adj.pop();
-  noun.pop();
-});
 
 // ! alertas
 
-const alertPlaceholder = document.getElementById("alertPlaceholder");
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement("div");
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    "</div>"
-  ].join("");
+// const alertPlaceholder = document.getElementById("alertPlaceholder");
+// const appendAlert = (message, type) => {
+//   const wrapper = document.createElement("div");
+//   wrapper.innerHTML = [
+//     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+//     `   <div>${message}</div>`,
+//     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+//     "</div>"
+//   ].join("");
 
-  alertPlaceholder.append(wrapper);
-};
+//   alertPlaceholder.append(wrapper);
+// };
 
-const addAlertTrigger = document.getElementById("addValue");
-const deleteAlertTrigger = document.getElementById("deleteValue");
-if (addAlertTrigger) {
-  addAlertTrigger.addEventListener("click", () => {
-    appendAlert("Nice, you triggered this alert message!", "success");
-  });
-} else if (deleteAlertTrigger) {
-  deleteAlertTrigger.addEventListener("click", () => {
-    appendAlert("Nice, you triggered this alert message!", "danger");
-  });
-}
+// const addAlertTrigger = document.getElementById("addValue");
+// const deleteAlertTrigger = document.getElementById("deleteValue");
+// if (addAlertTrigger) {
+//   addAlertTrigger.addEventListener("click", () => {
+//     appendAlert("Nice, you triggered this alert message!", "success");
+//   });
+// } else if (deleteAlertTrigger) {
+//   deleteAlertTrigger.addEventListener("click", () => {
+//     appendAlert("Nice, you triggered this alert message!", "danger");
+//   });
+// }
 
 // ! imprimir la frase del titulo
 

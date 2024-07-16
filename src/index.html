@@ -62,7 +62,7 @@
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h2 class="modal-title ps-3 fw-bold" id="staticBackdropLabel">
@@ -77,23 +77,23 @@
           </div>  
           <div class="modal-body">
             <div id="alertPlaceholder"></div> 
-            <form action="">
-            <div class="col-7">
+            <form action="" target="_self" id="myForm" onsubmit="this.reset()">
+            <div class="col-5">
             <div class="mb-3">
-              <label for="formGroup" class="form-label">Add or Delete pronoun</label>
-              <input type="text" class="form-control" id="pronounInput" placeholder="pronoun">
+              <label for="pronounInputName" class="form-label">Add or Delete pronoun</label>
+              <input type="text" class="form-control" name="pronounInputName" id="pronounInput" placeholder="pronoun">
             </div>
             <div class="mb-3">
-              <label for="formGroup2" class="form-label">Add or Delete adj</label>
-              <input type="text" class="form-control" id="adjInput" placeholder="adjetive">
+              <label for="adjInputName" class="form-label">Add or Delete adj</label>
+              <input type="text" class="form-control" name="adjInputName" id="adjInput" placeholder="adjetive">
             </div>
             <div class="mb-3">
-              <label for="formGroup3" class="form-label">Add or Delete noun</label>
-              <input type="text" class="form-control" id="nounInput" placeholder="adjective">
+              <label for="nounInputName" class="form-label">Add or Delete noun</label>
+              <input type="text" class="form-control" name="nounInputName" id="nounInput" placeholder="noun">
             </div>
           </div>
-            <div class="col-3 columns">
-              <div class="container-fluid text-center"></div>
+            <div class="col-7 columns">
+              <div class="container-fluid text-center" id="domain"></div>
             </div>
           </div>
           <div class="modal-footer">
@@ -122,6 +122,7 @@
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
+              
               >
               Close
             </button>
@@ -160,7 +161,7 @@
 <!-- !!Antiguo HTML reserva sin el form -->
 
 <!-- <!DOCTYPE html>
-<html>
+ <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -179,25 +180,25 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="./4geeks.ico" />
-  </head>
+  </head> -->
 
   <!-- inicio body -->
-   
-  <body>
+<!--    
+  <body> -->
 
     <!-- inicio título y línea separadora -->
 
-    <div class="container-fluid d-inline-block text-center w-100 my-5">
+    <!-- <div class="container-fluid d-inline-block text-center w-100 my-5">
       <h1 class="mt-5 mb-2 font-weight-bold">
         Choose your favourite grumpy domain
       </h1>
       <hr class="hr border-5 opacity-75 mx-5" />
-    </div>
+    </div> -->
 
     <!-- final título y línea separadora -->
     <!-- inicio boton abre modal -->
 
-    <div
+    <!-- <div
       class="container-fluid d-flex justify-content-center align-items-center h-50 my-5"
     >
       <button
@@ -209,12 +210,12 @@
       >
         Click & Domain
       </button>
-    </div>
+    </div> -->
 
     <!-- final boton abre modal -->
     <!-- inicio modal -->
      
-    <div
+    <!-- <div
       class="modal fade"
       id="staticBackdrop"
       data-bs-backdrop="static"
@@ -252,28 +253,28 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- final modal -->
     <!-- inicio footer 4geeks -->
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="fixed-bottom text-white text-center p-4">
         Made with ❤️ by
         <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
       </div>
-    </div>
+    </div> -->
 
     <!-- final footer 4geeks -->
 
-    <script
+    <!-- <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
     <script src="src/app.js"></script>
-  </body>
+  </body> -->
 
   <!-- final body -->
 
-</html> -->
+<!-- </html> -->
