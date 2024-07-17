@@ -70,20 +70,14 @@ function showAlert(message, type) {
 
 // ! click en los botones para que: muestren resultado, reseteen, añadan o eliminen
 
-function handleInput(action) {
-  const pronounInput = document
-    .getElementById("pronounInput")
-    .value.replace(/\ /g, "");
+function addDeleteInput(action) {
+  const pronounInput = document.getElementById("pronounInput").value.replace(/\ /g, "");
   const adjInput = document.getElementById("adjInput").value.replace(/\ /g, "");
-  const nounInput = document
-    .getElementById("nounInput")
-    .value.replace(/\ /g, "");
+  const nounInput = document.getElementById("nounInput").value.replace(/\ /g, "");
 
-  if (action === "add") {
-    if (!pronounInput && !adjInput && !nounInput) {
-      showAlert("Please enter a value in at least one field.", "warning");
-      return;
-    }
+  if (action === "add" && !pronounInput && !adjInput && !nounInput) {
+    showAlert("Please enter a value in at least one field.", "warning");
+    return;
   }
 
   if (pronounInput) {
@@ -139,10 +133,9 @@ function handleInput(action) {
 
 document
   .getElementById("addValue")
-  .addEventListener("click", () => handleInput("add"));
-document
-  .getElementById("deleteValue")
-  .addEventListener("click", () => handleInput("delete"));
+  .addEventListener("click", () => addDeleteInput("add"));
+
+document.getElementById("deleteValue").addEventListener("click", () => addDeleteInput("delete"));
 
 document.getElementById("result").addEventListener("click", generateDomain);
 
