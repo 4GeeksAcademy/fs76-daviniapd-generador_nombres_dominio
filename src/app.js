@@ -54,10 +54,7 @@ function showAlert(message, type) {
   const alertDiv = document.createElement("div");
   alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
   alertDiv.role = "alert";
-  alertDiv.innerHTML = `
-    ${message}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  `;
+  alertDiv.innerHTML = `${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
   alertContainer.appendChild(alertDiv);
 
   // eliminar la alerta después de 3 segundos
@@ -71,9 +68,13 @@ function showAlert(message, type) {
 // ! click en los botones para que: muestren resultado, reseteen, añadan o eliminen
 
 function addDeleteInput(action) {
-  const pronounInput = document.getElementById("pronounInput").value.replace(/\ /g, "");
+  const pronounInput = document
+    .getElementById("pronounInput")
+    .value.replace(/\ /g, "");
   const adjInput = document.getElementById("adjInput").value.replace(/\ /g, "");
-  const nounInput = document.getElementById("nounInput").value.replace(/\ /g, "");
+  const nounInput = document
+    .getElementById("nounInput")
+    .value.replace(/\ /g, "");
 
   if (action === "add" && !pronounInput && !adjInput && !nounInput) {
     showAlert("Please enter a value in at least one field.", "warning");
@@ -135,7 +136,9 @@ document
   .getElementById("addValue")
   .addEventListener("click", () => addDeleteInput("add"));
 
-document.getElementById("deleteValue").addEventListener("click", () => addDeleteInput("delete"));
+document
+  .getElementById("deleteValue")
+  .addEventListener("click", () => addDeleteInput("delete"));
 
 document.getElementById("result").addEventListener("click", generateDomain);
 
