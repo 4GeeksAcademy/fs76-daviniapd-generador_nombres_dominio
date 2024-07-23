@@ -48,6 +48,19 @@ function generateDomain() {
 window.onload = generateDomain;
 
 // ! alertas
+function showAlertWithInstructions(message, type) {
+  const alertContainer = document.getElementById("alertContainer");
+  const alertDiv = document.createElement("div");
+  alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+  alertDiv.role = "alert";
+  alertDiv.innerHTML = `${message} <button id="closeInstructions" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
+  alertContainer.appendChild(alertDiv);
+
+  // agregar evento para cerrar la alerta al hacer clic en el botón de cerrar
+  document.getElementById("closeInstructions").addEventListener("click", () => {
+    alertDiv.remove();
+  });
+}
 
 function showAlert(message, type) {
   const alertContainer = document.getElementById("alertContainer");
@@ -77,6 +90,11 @@ function addDeleteInput(action) {
     .value.replace(/\ /g, "");
 
   if (action === "add" && !pronounInput && !adjInput && !nounInput) {
+    showAlert("Please enter a value in at least one field.", "warning");
+    return;
+  }
+
+  if (action === "delete" && !pronounInput && !adjInput && !nounInput) {
     showAlert("Please enter a value in at least one field.", "warning");
     return;
   }
@@ -174,3 +192,10 @@ document.getElementById("resetButton").addEventListener("click", function() {
   // mostrar alerta de reseteo
   showAlert("Form reset successfully.", "info");
 });
+
+document.getElementById("reload").addEventListener("click", () => {
+  showAlertWithInstructions(
+    "You must add one pronoun, one adjective and one noun to generate a domain name. The structure of a domain name is <em>pronounadjnoun.com</em>",
+    "warning"
+  );
+}); // para que la alerta de las instrucciones salte cada vez que el usuario le de al botón
