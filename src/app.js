@@ -82,14 +82,19 @@ function addDeleteInput(action) {
   }
 
   if (pronounInput) {
+    const pronounList = document.getElementById("pronounList");
+    const pronounAdded = document.createElement("li");
     if (action === "add") {
       showAlert(`Pronoun added: ${pronounInput}`, "success");
       pronoun.push(pronounInput);
+      pronounAdded.innerHTML = `<span></span> ${pronounInput}`;
+      pronounList.appendChild(pronounAdded);
     } else if (action === "delete") {
       const index = pronoun.indexOf(pronounInput);
       if (index > -1) {
         pronoun.splice(index, 1);
         showAlert(`Pronoun deleted: ${pronounInput}`, "danger");
+        pronounList.removeChild(pronounList.childNodes[index]);
       } else {
         showAlert(`Pronoun not found: ${pronounInput}`, "warning");
       }
@@ -154,3 +159,34 @@ document.getElementById("resetButton").addEventListener("click", function() {
   // mostrar alerta de reseteo
   showAlert("Form reset successfully.", "info");
 });
+
+// const inputField = document.getElementById("addToDo");
+// const todoList = document.querySelector("ul");
+
+// function addTask() {
+//   const taskText = inputField.value.trim(); // Get the input value and remove leading/trailing spaces
+
+//   if (taskText !== "") {
+//     // Only add a task if it's not empty
+//     const listItem = document.createElement("li");
+//     listItem.innerHTML = `<span><i class="fa fa-trash"></i></span> ${taskText}`;
+//     todoList.appendChild(listItem);
+//     inputField.value = ""; // Clear the input field
+//   }
+// }
+
+// function deleteTask(event) {
+//   const clickedElement = event.target;
+//   if (clickedElement.classList.contains("fa-trash")) {
+//     const listItem = clickedElement.parentElement.parentElement;
+//     todoList.removeChild(listItem);
+//   }
+// }
+
+// inputField.addEventListener("keypress", function(e) {
+//   if (e.key === "Enter") {
+//     addTask();
+//   }
+// });
+
+// todoList.addEventListener("click", deleteTask);
