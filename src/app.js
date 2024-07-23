@@ -102,14 +102,19 @@ function addDeleteInput(action) {
   }
 
   if (adjInput) {
+    const adjList = document.getElementById("adjList");
+    const adjAdded = document.createElement("li");
     if (action === "add") {
       showAlert(`Adjective added: ${adjInput}`, "success");
       adj.push(adjInput);
+      adjAdded.innerHTML = `<span></span> ${adjInput}`;
+      adjList.appendChild(adjAdded);
     } else if (action === "delete") {
       const index = adj.indexOf(adjInput);
       if (index > -1) {
         adj.splice(index, 1);
         showAlert(`Adjective deleted: ${adjInput}`, "danger");
+        adjList.removeChild(adjList.childNodes[index]);
       } else {
         showAlert(`Adjective not found: ${adjInput}`, "warning");
       }
@@ -117,14 +122,19 @@ function addDeleteInput(action) {
   }
 
   if (nounInput) {
+    const nounList = document.getElementById("nounList");
+    const nounAdded = document.createElement("li");
     if (action === "add") {
       showAlert(`Noun added: ${nounInput}`, "success");
       noun.push(nounInput);
+      nounAdded.innerHTML = `<span></span> ${nounInput}`;
+      nounList.appendChild(nounAdded);
     } else if (action === "delete") {
       const index = noun.indexOf(nounInput);
       if (index > -1) {
         noun.splice(index, 1);
         showAlert(`Noun deleted: ${nounInput}`, "danger");
+        nounList.removeChild(nounList.childNodes[index]);
       } else {
         showAlert(`Noun not found: ${nounInput}`, "warning");
       }
@@ -149,44 +159,18 @@ document.getElementById("result").addEventListener("click", generateDomain);
 
 document.getElementById("resetButton").addEventListener("click", function() {
   document.getElementById("domain").innerHTML = "";
-  domain = []; // vaciar la variable de dominios
+  // vaciar las variables
+  domain = [];
   pronoun = [];
   adj = [];
   noun = [];
+  //eliminar los elementos de las listas en el DOM
+  document.getElementById("pronounList").innerHTML = "";
+  document.getElementById("adjList").innerHTML = "";
+  document.getElementById("nounList").innerHTML = "";
   console.clear(); // limpiar la consola
   document.getElementById("domainForm").reset(); // resetear el formulario
 
   // mostrar alerta de reseteo
   showAlert("Form reset successfully.", "info");
 });
-
-// const inputField = document.getElementById("addToDo");
-// const todoList = document.querySelector("ul");
-
-// function addTask() {
-//   const taskText = inputField.value.trim(); // Get the input value and remove leading/trailing spaces
-
-//   if (taskText !== "") {
-//     // Only add a task if it's not empty
-//     const listItem = document.createElement("li");
-//     listItem.innerHTML = `<span><i class="fa fa-trash"></i></span> ${taskText}`;
-//     todoList.appendChild(listItem);
-//     inputField.value = ""; // Clear the input field
-//   }
-// }
-
-// function deleteTask(event) {
-//   const clickedElement = event.target;
-//   if (clickedElement.classList.contains("fa-trash")) {
-//     const listItem = clickedElement.parentElement.parentElement;
-//     todoList.removeChild(listItem);
-//   }
-// }
-
-// inputField.addEventListener("keypress", function(e) {
-//   if (e.key === "Enter") {
-//     addTask();
-//   }
-// });
-
-// todoList.addEventListener("click", deleteTask);
